@@ -1,3 +1,9 @@
+---
+layout: post
+mathjax: true
+comments: true
+title: "Elastic Net notes Part start 3.4"
+---
 # Elastic-net Notes from part 3.4 Computation: the Algorithm LARS-EN
 
 
