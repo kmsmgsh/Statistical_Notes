@@ -8,9 +8,6 @@
 [FullRankLassoStrictlyConvexAndNotStrictly.md](FullRankLassoStrictlyConvexAndNotStrictly.md)
 
 
-[autoInd.md](autoInd.md)
-
-
 [The variable selection property for lasso- up to n variables.md](The variable selection property for lasso- up to n variables.md)
 
 

@@ -3,7 +3,7 @@ current=os.getcwd()
 Allname=os.listdir(current)
 newlist=[]
 for n in Allname:
-    if n.endswith(".md"):
+    if (n.endswith(".md") and n!="autoInd.md"):
         newlist.append(n)
 print newlist
 AutoMd=current+'/autoInd.md'
