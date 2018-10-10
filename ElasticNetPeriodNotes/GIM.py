@@ -4,7 +4,7 @@ Allname=os.listdir(current)
 newlist=[]
 for n in Allname:
     if (n.endswith(".md") and n!="autoInd.md"):
-        newlist.append(n)
+        newlist.append(n[:-3])
 print newlist
 AutoMd=current+'/autoInd.md'
 f=open(AutoMd,'w')
