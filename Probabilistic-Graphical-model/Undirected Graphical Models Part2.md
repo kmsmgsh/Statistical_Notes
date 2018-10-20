@@ -6,7 +6,9 @@
 
 我觉得我对factor的定义有问题。
 
-### 4.4.1 Finer-Grained Parameterization
+果然有问题，factor是$\phi()$，定义在 clique上的。这里把factor单独拿出来用来得到一个新图。 
+
+###  4.4.1 Finer-Grained Parameterization
 
 #### 4.4.1.1 Factor Graphs
 
