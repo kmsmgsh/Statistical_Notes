@@ -30,10 +30,11 @@ After that, 如果有时间，就把这几个算法都实践一遍，至少目�
 
 ---
 
+第三篇的methodology部分完成，但是并不能充分理解这个方法，看起来还是有点像Cholesky factor而且还是人工构造，虽然不一样而且复杂化了。诡异。
+然后下一步是总结适用的模型以及数据实现，感觉更麻烦了。。。。
+
+
 
 
 ---
-I start with the [@An:2014jc] which is the frequecy part of the banded-width test, then another approach is done by [@Cheng:2017jh]. The most distinct part between these two approach is the cholesky decomposition. 
-
-(I need figure out who don't use this.) 
 

@@ -14,11 +14,11 @@ bibliography: bibliography.bib
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-I start with the [@An:2014jc] which is the frequecy part of the banded-width test, then another approach is done by [@Cheng:2017jh]. The huge differences between this two is @An:2014jc use the modified cholesky decomposition to modelling the precision matrix and directly model the covariance matrix by the autoregression form. @Cheng:2017jh use another approach can describe as "one-left" regression form. Then construct the @Cheng:2017jh is by the covariance that sum the non-banded entry of the residual covariance matrix entry. @An:2014jc use the only $j-k$ sub-diagonal entry to construct the test statistic instead. The difference also showed in the Hypotheses. The hypothesis for @Cheng:2017jh is "Whether bandwidth is $\gamma$ or not". The hypothesis for @An:2014jc is "$K\leqslant k-1$" or "$K\leqslant k$".
+I start with the [@An:2014jc] which is the frequecy part of the banded-width test, and another approach is done by [@Cheng:2017jh]. The main differences between this two is @An:2014jc use the modified cholesky decomposition to modelling the precision matrix and directly model the covariance matrix by the autoregression form. @Cheng:2017jh use another approach can describe as "one-left" regression form by T.W. Anderson (2003), then transfered the problem to the covariance structre of the residuals of the regression. Then he constructed the test statistic by using the sum of non-banded entry of the residual covariance matrix. @An:2014jc use the only $j-k$ sub-diagonal entry of cholesky factor to construct the test statistic instead. The difference also showed in the Hypotheses. The hypothesis for @Cheng:2017jh is "Whether bandwidth is $\gamma$ or not". The hypothesis for @An:2014jc is "$K\leqslant k-1$" or "$K\leqslant k$".
 
 ---
 
-Then the @Lee:2018vj use a similar method by @An:2014jc, however he used Bayesian approach rather than the frequency methods. Under the Bayesian set, the hypothesis is construct by bayes factor rather than a statistics follow a certain distribution.
+Another approach by @Lee:2018vj is a similar method by @An:2014jc, however he used Bayesian methods rather than the frequency methods. Under the Bayesian set, the hypothesis is construct by bayes factor rather than a statistics follow a certain distribution.
 
 @Lee:2017uq also showed a method using modified Cholesky decomposition to estimate precision matrix. k-banded Cholesky prior
 
