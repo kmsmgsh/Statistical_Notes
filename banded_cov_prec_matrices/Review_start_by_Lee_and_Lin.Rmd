@@ -3,10 +3,12 @@ title: "Review-banded width precision-covariance matrices"
 author: "Jiaming"
 date: "08/11/2018"
 output:
-  html_document: default
+  html_document: 
+    css: tem.css
 csl: apa.csl
 bibliography: bibliography.bib
----
+  
+---  
 
 ---
 
@@ -48,6 +50,7 @@ Review for @Lee:2018vj
 ---
 
 Another from @Lee:2018vj should be considered is @Banerjee:2015ex . This paper is mainly concern about the graphical model structure, a sparse precision matrix of a Gaussian graphical model. The edge presents or absences in a graphical model describing conditional independence. A popular Non-Bayes method is graphical lasso. This paper use bayesian method instead, use posterior distribution to learn the covariance structure.G-Wishart prior is mentioned here.
+
 ### The model specification:
 
 Gaussian DAG model by [@Lee:2018vj] .
