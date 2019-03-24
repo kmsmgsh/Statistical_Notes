@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Appendix : Detail notes about each three papers}{6}{0}{1}
+\beamer@sectionintoc {2}{Bayesian Banded test}{9}{0}{2}
+\beamer@subsubsectionintoc {2}{0}{1}{The model specification:}{9}{0}{2}
+\beamer@subsubsectionintoc {2}{0}{2}{Main result:}{13}{0}{2}
+\beamer@subsubsectionintoc {2}{0}{3}{Model specification \& Notations}{22}{0}{2}
+\beamer@sectionintoc {3}{References}{42}{0}{3}

@@ -1,113 +1,144 @@
-\documentclass[]{article}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-\fi
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
-            pdftitle={Review-banded width precision-covariance matrices},
-            pdfauthor={Jiaming},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-\usepackage{graphicx,grffile}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{0}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
 
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 
-%%% Change title format to be more compact
-\usepackage{titling}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\title[Statistical Learning]{Banded precision matrix tests} % The short title appears at the bottom of every slide, the full title is only on the title page
 
-% Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
+\author{Jiaming Shen} % Your name
+\institute[UoM] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+University of Manchester \\ % Your institution for the title page
+\medskip
+\textit{jiaming.shen@postgrad.man.ac.uk} % Your email address
 }
-
-\setlength{\droptitle}{-2em}
-
-  \title{Review-banded width precision-covariance matrices}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-    \author{Jiaming}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-      \predate{\centering\large\emph}
-  \postdate{\par}
-    \date{08/11/2018}
-
+\date{\today} % Date, can be changed to a custom date
 
 \begin{document}
-\maketitle
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
 
-I start with the (An, Guo, \& Liu, 2014) which is the frequecy part of
-the banded-width test, and another approach is done by (Cheng, Zhang, \&
-Zhang, 2017). The main differences between this two is An et al. (2014)
-use the modified cholesky decomposition to modelling the precision
-matrix and directly model the covariance matrix by the autoregression
-form. Cheng et al. (2017) use another approach can describe as
-``one-left'' regression form by T.W. Anderson (2003), then transfered
-the problem to the covariance structre of the residuals of the
-regression. Then he constructed the test statistic by using the sum of
-non-banded entry of the residual covariance matrix. An et al. (2014) use
-the only \(j-k\) sub-diagonal entry of cholesky factor to construct the
-test statistic instead. The difference also showed in the Hypotheses.
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Introduction} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+%\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+\begin{frame}
+\frametitle{Introduction}
+Three approaches for test the bandwidth of the precision matrix is presented in this slides, which are An, Guo, \& Liu, (2014) work,Cheng, Zhang, \& Zhang (2017) and  Lee \& Lin (2018).
+The main differences between this two is 
+There are two main differences in constructing the test statistic.
+
+\begin{enumerate}
+\item An et al. (2014) use the modified cholesky decomposition
+	while Cheng et al. (2017) didn't.
+	
+\item Cheng et al. (2017) sum up non-banded entry of the residual covariance matrix, while An et al. (2014) only sum up k-sub-diagonal entry.
+\end{enumerate}
+
+One main reason for such distinct is the Hypothesis are slightly different.
+
 The hypothesis for Cheng et al. (2017) is ``Whether bandwidth is
 \(\gamma\) or not''. The hypothesis for An et al. (2014) is
 ``\(K\leqslant k-1\)'' or ``\(K\leqslant k\)''.
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
 Another approach by Lee \& Lin (2018) is a similar method by An et al.
 (2014), however he used Bayesian methods rather than the frequency
 methods. Under the Bayesian set, the hypothesis is construct by bayes
@@ -121,41 +152,39 @@ selection and Bayes factor. (However, I am not too care about this, I
 mainly care about the methodology using to estimate the bandiwidth K and
 the precision matrices.)
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\end{frame}
 
-The content upon slightly summarized the introduction part by Lee \& Lin
-(2018), then I will repeat this procedure for An et al. (2014) and Cheng
-et al. (2017) . Other interesting papers mentioned in their introduction
-will also introduced.
+\begin{frame}
 
-After the summary of introduction, is the model building and example
-approach. It is interesting to see they use the covariance modelling
-method in very different models. A example is the mean-covariance model
+Numbers of method will be benefit from the covariance structure modelling.
+A example is the mean-covariance model
 in longitudinal data by Pan \& Pan (2017) and (Pourahmadi, 2000)
 analysis which involve the polynomial of time and lag-time to modelling
 the covariance matrices. Another example is Lee \& Lin (2018) which use
 the Gaussian DAG Models which has band-structured covariance/precision
 matrices.
+An et al. (2014) directly modelling the precision matrix in the multivariable Normal distribution without any specification application of the model.
+Cheng et al. (2017)  consider the Undirected Graph which may refer as Markov random field.
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\end{frame}
+
+\begin{frame}
+\
 
 Not only for the LDA data, estimation of the covariance matrices is also
 important for principle component analysis (PCA), linear/quadratic
 distriminant analysis and multivariate analysis of variance (MANOVA)
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 n\textgreater{}\textgreater{}p case, sample covariance fails to converge
 to the true covariance matrix (Johnstone, manuscript, \& 2004, n.d.).
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
 \hypertarget{appendix-detail-notes-about-each-three-papers}{%
 \subsection{Appendix : Detail notes about each three
 papers}\label{appendix-detail-notes-about-each-three-papers}}
+\end{frame}
 
-\hypertarget{review-for-lee2018vj}{%
-\subsection{Review for Lee \& Lin (2018)}\label{review-for-lee2018vj}}
+\begin{frame}
 
 Another from Lee \& Lin (2018) should be considered is Banerjee \&
 Ghosal (2015) . This paper is mainly concern about the graphical model
@@ -164,11 +193,23 @@ edge presents or absences in a graphical model describing conditional
 independence. A popular Non-Bayes method is graphical lasso. This paper
 use bayesian method instead, use posterior distribution to learn the
 covariance structure.G-Wishart prior is mentioned here.
+\end{frame}
 
-\hypertarget{the-model-specification}{%
-\subsubsection{The model specification:}\label{the-model-specification}}
 
-Gaussian DAG model by (Lee \& Lin, 2018) . DAG: Directed acyclic graph.
+\begin{frame}
+A very common question is rised here, why choosing banded structure, how to permutate the variable order to make the covariance matrix is banded? How to link the sparsity and the order to make a good explanation of a covariance matrix.
+
+Or in other words, how to explore the structure may be the main concern before the hypothesis test.
+
+Another question, if the stucture is sparse, are there any possibility to do some permutation to the matrix, change the order of variables can transfer the matrix to "banded like" or blocked diagonal matrices.
+\end{frame}
+
+\section{Bayesian Banded test}
+\begin{frame}{The model specification:}
+\subsubsection{The model specification:}
+Gaussian DAG model by (Lee \& Lin, 2018) . 
+
+DAG: Directed acyclic graph.
 
 Direct graph: \(\mathcal { D } = ( V , E )\) ,V is vertices
 \(V = \{ 1 , \ldots , p \}\) , E is directed edges. For any
@@ -183,38 +224,41 @@ Y _ { i } \perp \left\{ Y _ { j } \right\} _ { j < i , j \in p a _ { i } ( \math
 
 Consider,
 
-\[
+
 \begin{align}
 X _ { 1 },\ldots , X _ { n } | \Omega_{ n } \overset{i.i.d}{\sim} N _ { p } \left( 0 , \Omega _ { n } ^ { - 1 } \right)
 \end{align}
-\]
 
-\hypertarget{cholesky-decomposition-slight-different-from-pourhmadi}{%
-\paragraph{Cholesky Decomposition (Slight different from
-Pourhmadi)}\label{cholesky-decomposition-slight-different-from-pourhmadi}}
+\end{frame}
+
+\begin{frame}
+Cholesky Decomposition (Slight different from
+Pourhmadi)
 
 Do the Cholesky decomposition as following form : \[
 \Omega _ { n } = \left( I _ { p } - A _ { n } \right) ^ { T } D _ { n } ^ { - 1 } \left( I _ { p } - A _ { n } \right)
 \] with \(D_n=diag(d_j)\), \(a_{jj}=0\). Called \(A_n\) \emph{Cholesky
 factor} is unique and lower triangular matrix. Result: \(a_{jl}\neq0\)
 iff \(l\in pa_j(\mathcal D)\). Description: \(a_{jl}\) not 0 iff l is
-parent of j, the edge \(l\rightarrow j\) exists. Model: \[
+parent of j, the edge \(l\rightarrow j\) exists. 
+\end{frame}
+
+\begin{frame}
+Model: \[
 \begin{array}
 { c } { X _ { i 1 } | d _ { 1 } \overset { i . i . d } { \sim } N \left( 0 , d _ { 1 } \right) } \\ 
 { X _ { i j } | a _ { j } ^ { ( k ) } , d _ { j } , k \overset { i n d } { \sim } N \left( \sum _ { l = ( j - k ) _ { 1 } } ^ { j - 1 } X _ { i l } a _ { j l } , d _ { j } \right) , \quad j = 2 , \ldots , p} 
 \end{array}
-\] That is, showed in above figure \includegraphics{bandedMatrix.png} A
-very useful result: For Cholesky decomposition upon, the bandwidth of
+\] That is, showed in above figure 
+\includegraphics[width=5in]{bandedMatrix.png} 
+\end{frame}
+
+
+
+
+\begin{frame}
+A very useful result: For Cholesky decomposition upon, the bandwidth of
 \(A_n\) is k iff bandwidth of \(\Omega_n\) is \(k\).
-
-以上思路是，如果该阵是banded，那么经过cholesky变换以后，也应该是banded。
-
-突然想起来一点，an和cheng写的统计量构造是通过banded以后，那些应该为0的部分的和是否靠近0为点进行构造的。
-
-断点数据：抄完了 Bayesian Test and Selection for Bandwidth of
-High-dimensional Banded Precision Matrices 的模型数据。
-下一步：要么继续写这篇文章的Hypothesis构造的算法，要么去抄An(2014)和
-Cheng(2017）模型构造以及构造细节。
 
 Prior Distribution I'm not that concerned yet, however, should notice
 that it is the conjugate prior. So the posterior distribution can be
@@ -225,12 +269,14 @@ however, I regards this is ``not neccessary'' for the idea of method, so
 omit in this review. But I think the explaination in Section 2.4 is good
 and worth reading if involve the proof of consistency and other
 property.
+\end{frame}
 
-\hypertarget{main-result}{%
-\subsubsection{Main result:}\label{main-result}}
+
+\begin{frame}
+
+\subsubsection{Main result:}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 \item
   Bandwidth selection consistency
 \item
@@ -247,7 +293,12 @@ property.
   \begin{array} { l l } { \pi _ { 0 } ( k ) = C _ { 0 } ^ { - 1 } \pi ( k ) , \quad k = 0,1 , \ldots , k ^ { * } } \\ { \pi _ { 1 } ( k ) = C _ { 1 } ^ { - 1 } \pi ( k ) , \quad k = k ^ { \star } + 1 , \ldots , R _ { n } } \end{array}
   \] with \(C _ { 0 } = \sum _ { k = 0 } ^ { k ^ { * } } \pi ( k )\),
   \(C _ { 1 } = \sum _ { k = k ^ { * } + 1 } ^ { R _ { n } } \pi ( k )\).
-  Then the Bayes factor (the statistic we construct for Hypothesis), is
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+Then the Bayes factor (the statistic we construct for Hypothesis), is
   in analytic form, \[
   \begin{aligned} B _ { 10 } \left( \mathbf { X } _ { n } \right) & = \frac { \sum _ { k > k ^ { * } } \int p \left( \mathbf { X } _ { n } | \Omega _ { n } , k \right) \pi \left( \Omega _ { n } | k \right) \pi _ { 1 } ( k ) d \Omega _ { n } } { \sum _ { k \leq k ^ { * } } \int p \left( \mathbf { X } _ { n } | \Omega _ { n } , k \right) \pi \left( \Omega _ { n } | k \right) \pi _ { 0 } ( k ) d \Omega _ { n } } \\ & = \frac { \pi \left( k > k ^ { * } | \mathbf { X } _ { n } \right) } { \pi \left( k \leq k ^ { * } | \mathbf { X } _ { n } \right) } \times \frac { C _ { 0 } } { C _ { 1 } } \end{aligned}
   \] Consistency result: Under \(H_0:k\leq k^*\) \[
@@ -255,7 +306,9 @@ property.
   \] Under \(H_1\) \[
   B _ { 10 } \left( \mathbf { X } _ { n } \right) ^ { - 1 } = O _ { p } \left( T _ { n , H _ { 1 } , k _ { 0 } , k ^ { * } } \right)
   \]
-\end{enumerate}
+\end{frame}
+
+\begin{frame}
 
 Then is the method comparison between (An et al., 2014; Cheng et al.,
 2017) and it's method. The mainly concern also is the consistency.
@@ -273,6 +326,9 @@ If \(H_0\) is true, \(B_{10}(Y)\) decreases at rate
 hand, if \(H_1\) is true, \(B_{10}(Y)^{-1}\) decreases exponentially
 with \(n(k_2-k_1)\beta^2_{min}\).
 \end{quote}
+\end{frame}
+
+\begin{frame}
 
 So there should be some threshold for the ratio about ``decline the
 null-hypothesis'' or the ``accept the alter-hypothesis'' like 1 or 0.95
@@ -293,6 +349,9 @@ that the statistic they constructed is asymptotically under Normal
 distribution, then it comes to the normal 95\%
 hypothesis-test-framework. Need notice, the asymptotically achieve for
 \(n \wedge p \rightarrow \infty\) rather than \(n \rightarrow \infty\).
+\end{frame}
+
+\begin{frame}
 
 \begin{quote}
 Q : How the bayes factor linked with the Cholesky decomposition?
@@ -302,11 +361,12 @@ Q : How the bayes factor linked with the Cholesky decomposition?
 A: Insider the analytic form of Bayes factor: \(p(X_n|\Omega_n,k)\) and
 \(\pi(\Omega_n|k)\)
 \end{quote}
+\end{frame}
+
+\begin{frame}
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
-\tightlist
 \item
   Two-Sample Bandwidth Test
 \end{enumerate}
@@ -319,6 +379,11 @@ H _ { 0 } : k _ { 1 } = k _ { 2 },H _ { 1 } : k _ { 1 } \neq k _ { 2 }
 \] Bayes factor: \[
 B _ { 10 } \left( \mathbf { X } _ { n _ { 1 } } , \mathbf { Y } _ { n _ { 2 } } \right) = \frac { p \left( \mathbf { X } _ { n _ { 1 } } , \mathbf { Y } _ { n _ { 2 } } | H _ { 1 } \right) } { p \left( \mathbf { X } _ { n _ { 1 } } , \mathbf { Y } _ { n _ { 2 } } | H _ { 0 } \right) }
 \]
+
+\end{frame}
+
+
+\begin{frame}
 
 \begin{quote}
 How to investigate the posterior/probability under the \(H_1\)
@@ -338,9 +403,9 @@ Use marginal posterior distribution to deal with the alternative
 hypothesis \(k_1\neq k_2\). And arthor gives a theorem about the
 consistency of such test.
 
-Here we finish the review of (Lee \& Lin, 2018)
+\end{frame}
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\begin{frame}
 
 Here start review about (An et al., 2014) . Summary about introduction.
 (Will insert to begining of the final ediction of review.)
@@ -358,7 +423,9 @@ sentence, one is the ``prior'' of the importantce of variable has order
 and is already known. Then, the ``most interesting'' with ``less
 interesting'' variable are less correlated. However, this may not true
 in some situation, and may cause misleading in prior assumption.
+\end{frame}
 
+\begin{frame}
 \begin{quote}
 That is, another problem rised here, how to decide the order of the
 variables, for banded structure, the covariance/precision matrix may
@@ -368,7 +435,9 @@ others is only on its neighbor. How to choose a satisfied order of
 indeces \(I\) ? How about the precision matrices? (Under Gaussian is
 same? How about other distributions?)
 \end{quote}
+\end{frame}
 
+\begin{frame}{model-specification-notations}
 \hypertarget{model-specification-notations}{%
 \subsubsection{Model specification \&
 Notations}\label{model-specification-notations}}
@@ -387,12 +456,20 @@ without a respond Y, so it is \emph{NOT} a regression problem.
 MCD(modified cholesky decomposition) of \(\Sigma\) is denoted by
 \(\Sigma = L D L ^ { \mathrm { T } }\), correspond formula in precision
 matrix is \(\Omega = T ^ { \top } D ^ { - 1 } T\). Estimating \(T\),
-\(D\) is equivelant to estimate \(\Omega\) and \(\Sigma\). Similarly we
+\(D\) is equivelant to estimate \(\Omega\) and \(\Sigma\). 
+\end{frame}
+
+\begin{frame}
+Similarly we
 have the autoregressive property in such notation as \[
 X _ { i j } = \sum _ { q = 1 } ^ { j - 1 } \left( - t _ { j q } \right) X _ { i q } + \varepsilon _ { i j }
 \] for banded structure with bandwidth=\(K_0\) , we have \[
 X _ { i j } = \sum _ { q = \left( j - K _ { 0 } \right) _ { 1 } } ^ { j - 1 } \left( - t _ { j q } \right) X _ { i q } + \varepsilon _ { i j }
 \]
+
+\end{frame}
+
+\begin{frame}
 
 Hypothesis: \[
 H_0: K\leqslant k-1 \text{   vesus } H_1:K\geqslant k
@@ -408,8 +485,11 @@ Estimation for \(d_j\) as
 Surprise: finally an example that directly get the estimation by the
 mcd.
 \end{quote}
+\end{frame}
 
+\begin{frame}
 \begin{quote}
+
 Idea: can we do the autoregression between variables to obtain the
 sparse covariance structure? such as
 \(X_j=\sum_{i=1,i\neq j}^n \beta_i X_i\), test the significant to 0 for
@@ -418,7 +498,11 @@ sparse covariance structure? such as
 variables we can obtain a banded structure. Under such model, the
 bandwidth may change, so can we develope a more specific test for
 \(k_i\) ?
+
 \end{quote}
+\end{frame}
+
+\begin{frame}
 
 \emph{When \(H_0\) is true, then \(t_{j,j-k}=0\) for every \(j>k\). Then
 the corresponding estimators should be small.} Follow this idea, the
@@ -432,14 +516,19 @@ needed for an accurate testing procedure.
 From the construction, the statistic consider the difference between
 ``\(k\)-banded'' with ``\((k-1)\)-banded'', that is, showed in the
 figure below:
+\end{frame}
 
-\includegraphics[width=2.08333in,height=\textheight]{Band_test_structure.jpg}
+\begin{frame}
+\includegraphics[width=2.5in]{Band_test_structure.jpg}
 
 here is p=5,k=2 structure matrix.
 
 The \(t^{(k)}_j\) is the rectangle box of vector, the statistics L is
 the sum square of small square entry. It is the ``outer-wall'' of
 k-banded with (k-1)-banded.
+\end{frame}
+
+\begin{frame}
 
 Result by (Wu \& Pourahmadi, 2003): Conditonal on
 \(\mathcal X_j^{(k)}\),
@@ -456,6 +545,9 @@ Take \(l_j\) defined as
 \(\hat { t } _ { j , j - k } ^ { ( k ) 2 } / \left( \Delta _ { j } \hat { d } _ { j } ^ { ( k ) } \right)\)
 , modified \(L\) as
 \(L _ { c } = \sum _ { j = k + 1 } ^ { p } l _ { j }\)
+\end{frame}
+
+\begin{frame}
 
 Even more, the variance may different for each j, from the
 \(\hat t_j^{(k)}\) may different. Then need modified again by
@@ -470,20 +562,17 @@ L _ { f } = ( p - k ) ^ { - 1 / 2 } \sum _ { j = k + 1 } ^ { p } \frac { l _ { j
 
 After this, the arthor showed the power of the test.
 
-\hypertarget{procedure-of-the-test}{%
-\subsubsection{Procedure of the test}\label{procedure-of-the-test}}
-
 Consider the hypothesis test below: \[
 H _ { 0 k } : K \leqslant k - 1 \quad \text { versus } \quad H _ { 1 k } : K \geqslant k , \quad 1 \leqslant k \leqslant M
 \] Then we can estimate bandwidth by
 \(K_0=\{H_{0k} \text{ is false}\}\).
 
-\hypertarget{algorithm1}{%
-\subparagraph{Algorithm1:}\label{algorithm1}}
+\end{frame}
 
+
+\begin{frame}
+Algorithm1:
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   Specify significance level \(\alpha\), upper bound of k: \(M\)
 \item
@@ -503,14 +592,17 @@ Bonferroni procedure sets \(\alpha_k=\alpha/M\) to control familywise
 error so that it is no larger than \(\alpha\).
 
 Bonferroni procedure may be too conservative when number of tests is
-relative large. Holm (1979) proposed following procedure:
+relative large. 
 
-\hypertarget{algorithm2}{%
-\subparagraph{Algorithm2:}\label{algorithm2}}
+\end{frame}
+
+\begin{frame}
+Holm (1979) proposed following procedure:
+
+Algorithm2:
+
 
 \begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   Initialize \(\alpha\).
 \item
@@ -526,10 +618,10 @@ relative large. Holm (1979) proposed following procedure:
   No \(H_0\) is rejected: output \(\hat K=0\),implies diagonal matrix.
   Otherwise, \(\hat K=max\{k:H_{0k}\text{ is rejected}\}\).
 \end{enumerate}
+\end{frame}
 
---- finish this paper review.
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\begin{frame}
 
 Now start for review Cheng et al. (2017)
 
@@ -546,12 +638,12 @@ Such model can describe by an undirected graph is which the pvertices
 represent the p genes and an edge connects gene i and gene j if and only
 if the partial correlation \(\rho_{ij}\) between \(Y_i\) and \(Y_j\) is
 non-zero.
-
 \begin{quote}
-So in this description, the model is Markov random field ? : Undirected
-graph
+So in this description of undirected graph, the model is Markov random field ? 
 \end{quote}
+\end{frame}
 
+\begin{frame}
 Edge connected \(Y_i\) and \(Y_j\) iff partial correlation \(\rho_{ij}\)
 is non-zero. If \(\left( Y _ { 1 } , \dots , Y _ { p } \right)\) are
 jointly normally distributedm, estimating the structure of undirected
@@ -566,6 +658,9 @@ graphical model.
 \end{quote}
 
 Normal property for this, see Lauritzen (1996) .
+\end{frame}
+
+\begin{frame}
 
 Introduction part is interesting to collect wide range of papers.
 (Bickel \& Levina, 2008) is very important, have to read it all.
@@ -573,9 +668,10 @@ Introduction part is interesting to collect wide range of papers.
 Cholesky factor to model such covariance matrices. (But it seems too
 late? But we should trust Biometrika). But seems I omit it for now.
 
-\hypertarget{notation-and-model-specification}{%
-\paragraph{Notation and Model
-specification}\label{notation-and-model-specification}}
+\end{frame}
+
+\begin{frame}{Notation and Model
+specification}
 
 \(\mathbf Y = (Y_1,...,Y_p)'\) : p-dimension vector sith mean \(\mu\)
 and covariance matrix
@@ -590,6 +686,9 @@ cholesky factor bandwidth should be \(\frac{\gamma}{2}\))
 Hypothesis test problem: \[
 H_{\gamma,0}:\Omega\in \mathcal B_\gamma \text{ vs. } H_{\gamma,1}:\Omega\notin \mathcal B_{\gamma}
 \]
+\end{frame}
+
+\begin{frame}
 
 Remark: Bickel \& Lindner (2012) showed: If \(\Omega\) belongs to
 \(\mathcal B_\gamma\), there exists \(G_y\in B_{c\gamma}\) and
@@ -600,8 +699,12 @@ Remark: Bickel \& Lindner (2012) showed: If \(\Omega\) belongs to
 method of testing the banded structure of \(\Sigma_y\) due to Qiu \&
 Chen (2012) .
 
-\hypertarget{test-statistic}{%
-\subparagraph{Test Statistic:}\label{test-statistic}}
+
+\end{frame}
+
+\begin{frame}{Test Statistic:}
+
+
 
 \(B _ { \gamma } ( \Omega ) = \left( \omega _ { i j } I \{ | i - j | \leq \gamma\} \right)\)
 is a banded version of \(\Omega\) with bandwidth \(\gamma\). Then the
@@ -615,6 +718,9 @@ Because it is easier to analysis.
 
 Under the null hypothesis, then we have
 \(\operatorname { tr } \left( \Omega - B _ { \gamma } ( \Omega ) \right) ^ { 2 } = \sum _ { | i - j | > \gamma } \omega _ { i j } ^ { 2 } = 0\)
+\end{frame}
+
+\begin{frame}
 
 Let \[
 Y_i=\alpha_i+Y'_{-i}\beta_i+\epsilon_i
@@ -631,6 +737,10 @@ implies
 
 \(\Sigma _ { \epsilon } = \left( \operatorname { Cov } \left( \epsilon _ { i } , \epsilon _ { j } \right) \right) _ { p \times p } = \left( \sigma _ { \epsilon , i j } \right) _ { p \times p }\).
 
+\end{frame}
+
+\begin{frame}
+
 Under such notation, \(\Sigma_\epsilon\) belons to \(\mathcal B_\gamma\)
 if and only if \(\Omega\) belongs to \(\mathcal B_\gamma\).
 
@@ -644,9 +754,19 @@ T _ { n \gamma } : = \sum _ { | i - j | > \gamma } \tilde { \sigma } _ { \epsilo
 unobserved. Denote the residuals as \[
 \hat { \epsilon } _ { k i } = Y _ { k i } - \hat { \alpha } _ { i } - Y _ { k , - i } ^ { \prime } \hat { \boldsymbol { \beta } } _ { i } = Y _ { k i } - \overline { Y } _ { i } - \left( \boldsymbol { Y } _ { k , - i } ^ { \prime } - \overline { \boldsymbol { Y } } _ { - i } ^ { \prime } \right) \hat { \boldsymbol { \beta } } _ { i }
 \] use estimator instead of real error term in
-\(\tilde \sigma^2_{\epsilon,ij}\), then obtain a U statistic as \[
-\hat { \sigma } _ { \epsilon , i j } ^ { 2 } = \left\{ \frac { 1 } { P _ { n } ^ { 2 } } \sum _ { k l } ^ { * } \left( \hat { \epsilon } _ { k i } \hat { \epsilon } _ { k j } \right) \left( \hat { \epsilon } _ { l i } \hat { \epsilon } _ { j j } \right) - 2 \frac { 1 } { P _ { n } ^ { 3 } } \sum _ { k l s } ^ { * } \left( \hat { \epsilon } _ { k i } \hat { \epsilon } _ { k j } \right) \left( \hat { \epsilon } _ { l i } \hat { \epsilon } _ { s j } \right) + \frac { 1 } { P _ { n } ^ { 4 } } \sum _ { k l s t } ^ { * } \left( \hat { \epsilon } _ { k i } \epsilon _ { j j } \right) \left( \hat { \epsilon } _ { s i } \hat { \epsilon } _ { t j } \right) \right\}
-\]
+\(\tilde \sigma^2_{\epsilon,ij}\).
+
+\end{frame}
+
+\begin{frame}
+ then obtain a U statistic as 
+ \begin{align}
+\hat { \sigma } _ { \epsilon , i j } ^ { 2 } = \frac { 1 } { P _ { n } ^ { 2 } } \sum _ { k l } ^ { * } \left( \hat { \epsilon } _ { k i } \hat { \epsilon } _ { k j } \right) \left( \hat { \epsilon } _ { l i } \hat { \epsilon } _ { j j } \right) - 2 \frac { 1 } { P _ { n } ^ { 3 } } \sum _ { k l s } ^ { * } \left( \hat { \epsilon } _ { k i } \hat { \epsilon } _ { k j } \right) \left( \hat { \epsilon } _ { l i } \hat { \epsilon } _ { s j } \right) \\
++ \frac { 1 } { P _ { n } ^ { 4 } } \sum _ { k l s t } ^ { * } \left( \hat { \epsilon } _ { k i } \epsilon _ { j j } \right) \left( \hat { \epsilon } _ { s i } \hat { \epsilon } _ { t j } \right) 
+ \end{align}
+\end{frame}
+
+\begin{frame}
 
 Then alternative for \(T_{n\gamma}\) as
 \(T'_{n\gamma}= \sum _ { | i - j | > \gamma } \hat { \sigma } _ { \epsilon , i j } ^ { 2 }\).
@@ -657,9 +777,11 @@ in probability under certain conditions.
 Following is the asymptotically theory and converge for such statistic
 and the assumption for the asymptotically proportion.
 
-\hypertarget{references}{%
-\section*{References:}\label{references}}
-\addcontentsline{toc}{section}{References:}
+\end{frame}
+
+\section{References}
+\begin{frame}[allowframebreaks]
+
 
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-An:2014jc}{}%
@@ -738,5 +860,7 @@ Wu, W. B., \& Pourahmadi, M. (2003). Nonparametric estimation of large
 covariance matrices of longitudinal data. \emph{Biometrika},
 \emph{90}(4), 831--844.
 
+\end{frame}
+%----------------------------------------------------------------------------------------
 
 \end{document}

@@ -3,11 +3,12 @@ title: "Review-banded width precision-covariance matrices"
 author: "Jiaming"
 date: "08/11/2018"
 output:
-  html_document: 
+  html_document:
     css: tem.css
+  pdf_document: 
+   keep_tex: true
 csl: apa.csl
 bibliography: bibliography.bib
-  
 ---  
 
 ---
@@ -375,6 +376,8 @@ Following is the asymptotically theory and converge for such statistic and the a
 
 
 # References:
+
+
 
 
 

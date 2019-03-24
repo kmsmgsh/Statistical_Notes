@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@subsectionintoc {0}{1}{Appendix : Detail notes about each three papers}{3}{0}{0}
+\beamer@subsectionintoc {0}{2}{Review for Lee \& Lin (2018)}{3}{0}{0}
+\beamer@subsubsectionintoc {0}{2}{1}{The model specification:}{4}{0}{0}
+\beamer@subsubsectionintoc {0}{2}{2}{Main result:}{7}{0}{0}
+\beamer@subsubsectionintoc {0}{2}{3}{Model specification \& Notations}{12}{0}{0}
+\beamer@subsubsectionintoc {0}{2}{4}{Procedure of the test}{18}{0}{0}
+\contentsline {section}{References:}
